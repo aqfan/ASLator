@@ -37,6 +37,7 @@ function parseText() {
       console.log("auto playback started!");
     }).catch(function(error) {
       console.error('Failed to start video, retrying');
+      video_index++;
     });
   }
 }
@@ -55,7 +56,7 @@ function onVideoEnded() {
         console.log("auto playback started!");
       }).catch(function(error) {
         console.error('Failed to start video, retrying');
-        parseText();
+        video_index++;
       });
     }
   } else {

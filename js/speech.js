@@ -7,7 +7,7 @@ var UserDictation = artyom.newDictation({
   onResult:function(text){
     // Do something with the text
     console.log(text);
-    if (!input_text || input_text.length !== 0) {
+    if (!text || text.length !== 0) {
       result = text;
     }
   },
