@@ -1,24 +1,21 @@
 var artyom = new Artyom();
+artyom.say("hello world");
 
-artyom.addCommands([
-    {
-        indexes: ["Good morning"],
-        action: function(i){
-            console.log("Good morning Triggered");
-        }
+var UserDictation = artyom.newDictation({
+    continuous:true, // Enable continuous if HTTPS connection
+    onResult:function(text){
+        // Do something with the text
+        console.log(text);
     },
-    {
-        indexes: ["Good night"],
-        action: function(i){
-            console.log("Good night Triggered");
-        }
+    onStart:function(){
+        console.log("Dictation started by the user");
+    },
+    onEnd:function(){
+        alert("Dictation stopped by the user");
     }
-]);
-
-// Or the artisan mode to write less
-artyom.on(["Good morning"]).then(function(i){
-    console.log("Triggered");
 });
+
+UserDictation.start();
 
 artyom.initialize({
     lang:"en-GB",
