@@ -5,8 +5,6 @@ var video_player = document.getElementById("video");
 
 function onSubmit(){
   var input_text = $("#translate-text").val();
-  video_list = [];
-  video_index = 0;
   if (!input_text || input_text.length !== 0) {
     parseText(input_text);
   }
@@ -17,6 +15,8 @@ function onClear(){
 }
 
 function parseText(text) {
+  video_list = [];
+  video_index = 0;
   var arr = text.split(" ");
   for (var i = 0; i < arr.length; i++) {
     var str = "https://www.handspeak.com/word/"+arr[i].charAt(0)+"/"+arr[i]+".mp4";
