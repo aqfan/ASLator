@@ -26,7 +26,7 @@ function parseText() {
     console.log(str);
     video_list.push(str);
   }
-  video_player.setAttribute("src", video_list[video_index]);
+  video_player.src = video_list[video_index];
   video_player.play();
 }
 
@@ -34,7 +34,7 @@ function onVideoEnded() {
   console.log("video ended");
   if(video_index < video_list.length - 1) {
     video_index++;
-    video_player.setAttribute("src", video_list[video_index]);
+    video_player.src = video_list[video_index];
     video_player.play();
   } else {
     video_player.pause();
