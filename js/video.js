@@ -2,16 +2,15 @@ var video_list = [];
 
 var video_index = 0;
 var video_player = null;
-var input_text = null;
 
 function onSubmit(){
   console.log("body loaded");
   video_player = document.getElementById("video");
-  input_text = $("#translate-text").val();
+  var input_text = $("#translate-text").val();
   video_list = [];
   video_index = 0;
   if (!input_text || input_text.length !== 0) {
-    parseText();
+    parseText(input_text);
   }
 }
 
@@ -19,8 +18,8 @@ function onClear(){
   $("#translate-text").val("");
 }
 
-function parseText() {
-  var arr = input_text.split(" ");
+function parseText(text) {
+  var arr = text.split(" ");
   for (var i = 0; i < arr.length; i++) {
     var str = "https://www.handspeak.com/word/"+arr[i].charAt(0)+"/"+arr[i]+".mp4";
     video_list.push(str);

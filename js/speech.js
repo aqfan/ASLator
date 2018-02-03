@@ -6,10 +6,8 @@ var UserDictation = artyom.newDictation({
   continuous:true, // Enable continuous if HTTPS connection
   onResult:function(text){
     // Do something with the text
-    console.log("fsda"+text.length)
     if (text.length != 0) {
       result = text;
-      console.log(text.length);
     }
   },
   onStart:function(){
@@ -18,6 +16,7 @@ var UserDictation = artyom.newDictation({
   onEnd:function(){
     alert("Dictation stopped by the user");
     console.log("result:"+result);
+    
   }
 });
 
