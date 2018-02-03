@@ -1,5 +1,4 @@
 var artyom = new Artyom();
-artyom.say("hello world");
 
 var UserDictation = artyom.newDictation({
     continuous:true, // Enable continuous if HTTPS connection
@@ -15,8 +14,12 @@ var UserDictation = artyom.newDictation({
     }
 });
 
-function record() {
+function startRecord() {
   UserDictation.start();
+}
+
+function stopRecord() {
+  UserDictation.stop();
 }
 
 artyom.initialize({
