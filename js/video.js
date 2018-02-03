@@ -15,9 +15,13 @@ function onClear(){
 }
 
 function parseText(text) {
+  var arr = text.split(" ");
+  makeArray(arr);
+}
+
+function makeArray(arr) {
   video_list = [];
   video_index = 0;
-  var arr = text.split(" ");
   for (var i = 0; i < arr.length; i++) {
     var str = "https://www.handspeak.com/word/"+arr[i].charAt(0)+"/"+arr[i]+".mp4";
     video_list.push(str);
