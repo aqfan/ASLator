@@ -27,6 +27,7 @@ function parseText() {
   }
   console.log(video_list);
   video_player.src = video_list[video_index];
+  video_player.load();
   var playPromise = video_player.play();
 
   // In browsers that don’t yet support this functionality,
