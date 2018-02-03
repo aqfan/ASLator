@@ -3,9 +3,12 @@ var video_list = [];
 var video_index = 0;
 var video_player = null;
 
-function onSubmit(){
+function onLoad(){
   console.log("body loaded");
   video_player = document.getElementById("video");
+}
+
+function onSubmit(){
   var input_text = $("#translate-text").val();
   video_list = [];
   video_index = 0;
