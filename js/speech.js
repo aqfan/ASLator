@@ -1,6 +1,6 @@
 var artyom = new Artyom();
 
-var result = [];
+var result = '';
 
 var UserDictation = artyom.newDictation({
   continuous:true, // Enable continuous if HTTPS connection
@@ -8,7 +8,7 @@ var UserDictation = artyom.newDictation({
     // Do something with the text
     console.log(text);
     if (text.length != 0) {
-      result.push(text);
+      result =  text;
     }
   },
   onStart:function(){
@@ -17,7 +17,7 @@ var UserDictation = artyom.newDictation({
   onEnd:function(){
     alert("Dictation stopped by the user");
     console.log("result:"+result);
-    makeArray(result);
+    parsTest(result);
   }
 });
 
