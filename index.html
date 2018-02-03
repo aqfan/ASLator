@@ -65,14 +65,14 @@
 
   <section style="background-image:url(img/header.jpg)" class="bg-dark">
     <div class="container-fluid">
-          <div class="row">
-              <center>
-                <h1 id="homeHeading">Welcome to ASLator!</h1>
-                <hr/>
-                <p class="section-heading">An app that translates ASL</p>
-                <a href="#tryme" class="btn btn-primary btn-xl page-scroll">Try Me</a>
-              </center>
-          </div>
+      <div class="row">
+        <center>
+          <h1 id="homeHeading">Welcome to ASLator!</h1>
+          <hr/>
+          <p class="section-heading">An app that translates ASL</p>
+          <a href="#tryme" class="btn btn-primary btn-xl page-scroll">Try Me</a>
+        </center>
+      </div>
     </div>
   </section>
 
@@ -87,28 +87,27 @@
       <br/>
       <div class="row">
         <center>
-        <div class="col-lg-6">
+          <div class="col-lg-6">
             <h4> You can record speech</h4>
             <div class="btn btn-default">Record Voice</div>
-          <br/>
+            <br/>
             <h4> You can also input text</h4>
             <form>
               <div class="form-group">
-                <input type="text" class="form-control" id="translate-text" placeholder="Enter text to translate"/>
+                <textarea class="form-control" rows="5" id="translate-text"></textarea>
+                <br/>
+                <button type="submit" class="btn btn-default" onclick="onSubmit()">Submit</button>
+                <button type="submit" class="btn btn-default" onclick="onClear()">Clear</button>
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
             </form>
-        </div>
-        <br/>
-        <div class="col-lg-6">
-          <h4> Video Translation:</h4>
-          <div class="media">
-            <video controls id="video">
-              <!--<source src="https://www.handspeak.com/word/n/no.mp4" type ="video/mp4"/>-->
-            </video>
-            <script src=
           </div>
-        </div>
+          <br/>
+          <div class="col-lg-6">
+            <h4> Video Translation:</h4>
+            <div class="media">
+              <video id="video" onended="onVideoEnded();" height="240px" width="320px"/>
+            </div>
+          </div>
         </center>
       </div>
     </div>
@@ -126,7 +125,7 @@
 
 
   <!-- jQuery -->
-  <script src="jquery/jquery.min.js"></script>
+  <script src="sheets/jquery/jquery.min.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
   <script src="sheets/bootstrap/js/bootstrap.min.js"></script>
@@ -138,6 +137,7 @@
 
   <!-- Theme JavaScript -->
   <script src="js/creative.min.js"></script>
+  <script src="js/video.js"></script>
 
 </body>
 
