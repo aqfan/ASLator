@@ -4,7 +4,7 @@ nlp = spacy.load('en')
 WORD_ORDER = ["SUB", "IO", "DO", "VERB"]
 
 def translate(sentence):
-	parsed_text = nlp(unicode(sentence))
+	parsed_text = nlp(sentence)
 	# print(parsed_text)
 	subject = ''
 	indirect_object = ''
@@ -14,8 +14,8 @@ def translate(sentence):
 
 	#get token dependencies
 	for text in parsed_text:
-		text = text.lemma_
-		# print(text)
+		# text = text.lemma_
+		print(text)
 		print("Tag: " + text.tag_)
 		print("Dep: " + text.dep_)
 		if text.dep_ == 'nsubj':
@@ -32,3 +32,7 @@ def translate(sentence):
 	# print(subject)
 	# print(direct_object)
 	# print(indirect_object)
+
+if __name__ == '__main__':
+    from sys import argv
+    translate(argv[1])
