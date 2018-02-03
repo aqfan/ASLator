@@ -19,11 +19,11 @@ def translate(sentence):
 		print("Tag: " + text.tag_)
 		print("Dep: " + text.dep_)
 		if text.dep_ == 'nsubj':
-			output.append(text)
-		elif text.tag_[:2] == 'VB':
-			output.append(text)
-		elif text.dep_ == "dobj":
-			output.append(text)
+			output.append(text.lemma_)
+		elif text.tag_[:2] == 'VB' and text.dep_ == "ROOT":
+			output.append(text.lemma_)
+		elif text.dep_ == "dobj" or text.dep_ == "oprd":
+			output.append(text.lemma_)
 
 	# for el in WORD_ORDER:
 	# 	if 
