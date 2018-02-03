@@ -15,7 +15,9 @@ var UserDictation = artyom.newDictation({
     }
 });
 
-UserDictation.start();
+function record() {
+  UserDictation.start();
+}
 
 artyom.initialize({
     lang:"en-GB",
