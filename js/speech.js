@@ -16,7 +16,7 @@ var UserDictation = artyom.newDictation({
   onEnd:function(){
     alert("Dictation stopped by the user");
     console.log("result:"+result);
-    
+    parseText(result);
   }
 });
 
