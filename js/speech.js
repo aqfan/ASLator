@@ -6,7 +6,7 @@ var UserDictation = artyom.newDictation({
   continuous:true, // Enable continuous if HTTPS connection
   onResult:function(text){
     // Do something with the text
-    if (!text && text.length !== 0) {
+    if (text.length !== 0) {
       result = text;
       console.log(text.length);
     }

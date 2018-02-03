@@ -10,7 +10,7 @@ function onSubmit(){
   input_text = $("#translate-text").val();
   video_list = [];
   video_index = 0;
-  if (!input_text && input_text.length !== 0) {
+  if (!input_text || input_text.length !== 0) {
     parseText();
   }
 }
