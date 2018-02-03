@@ -36,7 +36,6 @@ function parseText() {
       console.log("auto playback started!");
     }).catch(function(error) {
       console.error('Failed to start video, retrying');
-      parseText();
     });
   }
 }
