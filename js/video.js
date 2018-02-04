@@ -24,6 +24,7 @@ function makeArray(arr) {
   video_index = 0;
   for (var i = 0; i < arr.length; i++) {
     var temp = arr[i].toLowerCase();
+    console.log(temp);
     var str = "https://www.handspeak.com/word/"+temp.charAt(0)+"/"+temp+".mp4";
     video_list.push(str);
   }
