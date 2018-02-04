@@ -2,7 +2,7 @@ import spacy
 nlp = spacy.load('en')
 
 WORD_ORDER = ["TIME", "DO", "SUB", "VERB"]
-WORD_ORDER_IO = ["TIME", "DO", "SUB", "VERB"]
+WORD_ORDER_IO = ["TIME", "SUB", "IO", "DO", "VERB"]
 # WORD_ORDER = ["SUB", "VERB", "DO"]
 sen_dic = {"SUB": [], "IO": [], "DO": [], "VERB": [], "TIME": []}
 
@@ -17,19 +17,18 @@ def findRights(rights):
 		if r.dep_ == "dobj":
 			sen_dic["DO"].append(r)
 		elif r.dep_ == "dative":
+			print("INSIDE HERE")
 			sen_dic["IO"].append(r)
 
 def findVerb(sentence):
-	for word in doc:
+	for word in sentence:
 		if word.pos_ == "VERB":
-			sen_dic["VERB"].append(word.lemma_)
 			lefts = word.lefts
-			rights = word.rights
 			findSub(lefts)
-			findRights(rights)
-
-
-	
+			if word.n_rights != 0:
+				sen_dic["VERB"].append(word.lemma_)
+				rights = word.rights
+				findRights(rights)
 
 	# # print(parsed_text)
 
@@ -58,20 +57,30 @@ def findVerb(sentence):
 	# for token in doc:
 		# print(token.text, token.dep_, token.head.text, token.head.pos_, [child for child in token.children])
 
-if __name__ == '__main__':
-	from sys import argv
-	doc = nlp(argv[1])
+def translate(sentence):
+
+	doc = nlp(sentence)
+
+	if (len(sentence.split(' ')) == 1):
+		print (doc[0])
+		return doc[0]
 	findVerb(doc)
 	# doc = nlp(argv[1])
 	for ent in doc.ents:
 		if ent.label_ == "DATE":
 			sen_dic["TIME"] = ent
 	output = []
-	# if (len(sen_dic["IO"]) == 0):
-	# 	order = WORD_ORDER
-	# else:
-	# 	order = WORD_ORDER_IO
-	for val in WORD_ORDER:
+
+	if (len(sen_dic["IO"]) == 0):
+		order = WORD_ORDER
+	else:
+		order = WORD_ORDER_IO
+
+	for val in order:
 		for word in sen_dic[val]:
 			output.append(str(word).lower())
 	print (output)
+	return output
+
+
+translate("She wants food")
