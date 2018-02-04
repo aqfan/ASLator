@@ -30,7 +30,7 @@ function stopRecord() {
 }
 
 artyom.initialize({
-  lang:"en-GB",
+  lang:"en-US",
   debug:true, // Show what recognizes in the Console
   listen:true, // Start listening after this
   speed:0.9, // Talk a little bit slow
