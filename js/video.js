@@ -6,7 +6,7 @@ var video_player = document.getElementById("video");
 function onSubmit(){
   var input_text = $("#translate-text").val();
   if (!input_text || input_text.length !== 0) {
-    parseText(input_text);
+    parseText(input_text.toLowerCase());
   }
 }
 
