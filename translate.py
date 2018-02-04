@@ -7,18 +7,25 @@ WORD_ORDER_IO = ["TIME", "SUB", "IO", "DO", "VERB"]
 sen_dic = {"SUB": [], "IO": [], "DO": [], "VERB": [], "TIME": []}
 
 
+def findAdj(lefts, pos):
+	for l in lefts:
+		if l.dep_ == "amod":
+			sen_dic[pos].append(l)
+
 def findSub(lefts):
 	for l in lefts:
 		if l.dep_ == "nsubj":
 			sen_dic["SUB"].append(l)
+			findAdj(l.lefts, "SUB")
 
 def findRights(rights):
 	for r in rights:
 		if r.dep_ == "dobj":
 			sen_dic["DO"].append(r)
+			findAdj(r.lefts, "DO")
 		elif r.dep_ == "dative":
-			print("INSIDE HERE")
 			sen_dic["IO"].append(r)
+			findAdj(r.lefts, "IO")
 
 def findVerb(sentence):
 	for word in sentence:
@@ -83,4 +90,3 @@ def translate(sentence):
 	return output
 
 
-translate("She wants food")
