@@ -23,7 +23,8 @@ function makeArray(arr) {
   video_list = [];
   video_index = 0;
   for (var i = 0; i < arr.length; i++) {
-    var str = "https://www.handspeak.com/word/"+arr[i].charAt(0)+"/"+arr[i]+".mp4";
+    var temp = arr[i].toLowerCase();
+    var str = "https://www.handspeak.com/word/"+temp.charAt(0)+"/"+temp+".mp4";
     video_list.push(str);
   }
   console.log(video_list);
